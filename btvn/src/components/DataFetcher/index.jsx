@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 const DataFetcher = ({ url, children }) => {
     const [data, setData] = useState(null);
@@ -13,12 +14,8 @@ const DataFetcher = ({ url, children }) => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                const result = await response.json();
-                setData(result);
+                const response = await axios(url);
+                setData(response);
             } catch (err) {
                 setError(err.message);
             } finally {

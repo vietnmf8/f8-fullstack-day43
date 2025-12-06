@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import DataFetcher from "./components/DataFetcher";
+import DataFetcher from "@/components/DataFetcher";
 
 const RenderPropsDemo = () => {
     return (
